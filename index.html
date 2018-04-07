@@ -24,7 +24,9 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section data-background-image="./content/images/work-in-progress-sign.png" data-background-size="500px"></section>
+        <section id="wip" data-background-image="./content/images/work-in-progress-sign.png" data-background-size="500px"></section>
+
+
       </div>
     </div>
 
@@ -35,6 +37,7 @@
       // More info about config & dependencies:
       // - https://github.com/hakimel/reveal.js#configuration
       // - https://github.com/hakimel/reveal.js#dependencies
+      window.location.search.includes('wip=false') && document.getElementById('wip').remove();
       Reveal.initialize({
         dependencies: [
           { src: 'plugin/markdown/marked.js' },
