@@ -26,25 +26,34 @@
       <div class="slides">
         <section id="wip" data-background-image="./content/images/work-in-progress-sign.png" data-background-size="500px"></section>
 
-				<section>
-					<h4>Docker Meetup Córdoba / Abril 2018</h4>
-					<h2>Dokku</h2>
-					<img src="./content/images/dokku.png" />
-					<h3>mini-Heroku en tu propia infraestructura</h3>
-					<p>
-						<small>por <a href="https://twitter.com/gmatheu">Gonzalo Matheu</a></small>
-					</p>
-				</section>
+        <section>
+          <h4>Docker Meetup Córdoba / Abril 2018</h4>
+          <h2>Dokku</h2>
+          <img src="./content/images/dokku.png" />
+          <h3>mini-Heroku en tu propia infraestructura</h3>
+          <p>
+            <small>por <a href="https://twitter.com/gmatheu">Gonzalo Matheu</a></small>
+          </p>
+        </section>
 
-				<section data-markdown>
-									<script type="text/template">
-										### Mas información
+        <section id="questions">
+          <h1>Preguntas?</h1>
+          <img height="400px" src="https://static1.squarespace.com/static/50eca855e4b0939ae8bb12d9/t/5569c7a9e4b0e416f91fc9c2/1432995755661/" />
+        </section>
+        <section id="contact">
+          <h1>Gracias!</h1>
+          <p>
+            @gmatheu Twitter, Github
+          </p>
+        </section>
+        <section data-markdown id="more-info">
+          <script type="text/template">
+            ## Mas información
 
-										Write content using inline or external Markdown.
-										Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+            * [Documentación Dokku](http://dokku.viewdocs.io/dokku/)
 
-									</script>
-				</section>
+          </script>
+        </section>
 
       </div>
     </div>
@@ -58,6 +67,9 @@
       // - https://github.com/hakimel/reveal.js#dependencies
       window.location.search.includes('wip=false') && document.getElementById('wip').remove();
       Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
         dependencies: [
           { src: 'plugin/markdown/marked.js' },
           { src: 'plugin/markdown/markdown.js' },
