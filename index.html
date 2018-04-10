@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/league.css">
+    <link rel="stylesheet" href="css/custom.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -50,12 +51,25 @@
         <section>
           <section id="what">
             <h1>Qué es Dokku?</h1>
+            <p class="fragment fade-in">100 lines of bash</p>
+            <p class="fragment fade-in">500 lines of bash</p>
+            <p class="fragment fade-in">37000 lines of bash</p>
           </section>
           <section id="what_paas">
             <h1>PaaS</h1>
           </section>
           <section id="what_heroku">
-            <h1>Heroku</h1>
+            <h1>
+              <img width="150px" src="https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fludu-assets.s3.amazonaws.com%2Flesson-icons%2FKOLuHYOrXW8T324wQ4OM&f=1" />
+              Heroku</h1>
+            Build packs
+            Push to deploy
+            Services as plugins
+            Downsides: cost & public infraestructure
+            <blockquote cite="https://www.heroku.com/what">
+              Heroku is a cloud platform that lets companies build, deliver, monitor and scale apps
+              — we're the fastest way to go from idea to URL, bypassing all those infrastructure headaches.
+            </blockquote>
           </section>
           <section id="what_12factor">
             <h1>12 Factor Apps</h1>
@@ -65,9 +79,23 @@
         <section>
           <section id="features">
             <h1>Características</h1>
+
+            - Multi Host
+            - Multi Tenancy
+            - Client App
+
+            + Easy playground
+            + Straightforward
+            + Affordable
+            + Probably production ready
+
           </section>
           <section id="features_architecture">
             <h1>Arquitectura</h1>
+            Docker
+            Herokuish sshcommand
+            gitreceive
+            nginx
           </section>
           <section id="features_buildpacks">
             <h1>Buildpacks</h1>
@@ -75,8 +103,18 @@
           <section id="features_plugins">
             <h1>Plugins</h1>
           </section>
+          <section id="features_when">
+            <h1>Cuando usar</h1>
+            No critico
+            No grande escala
+            Single host deploys (maybe docker swarm)
+          </section>
           <section id="features_byproducts">
             <h1>Proyectos Relacionados</h1>
+            sshcommand
+            herokuish
+            gitreceive
+            plugn
           </section>
         </section>
 
@@ -85,10 +123,20 @@
             <h1>Alternativas</h1>
             <img src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.computerhowtoguide.com%2Fwp-content%2Fuploads%2F2011%2F11%2FGoogle-Adsense-Alternatives.gif.png&f=1" />
           </section>
+          <section id="vs_">
+            <h1>Deis</h1> + Kubernetes
+            <h1>Flynn</h1> + Custom containers
+            <h1>Tsuru</h1>
+          </section>
         </section>
 
         <section id="demo">
           <h1>Demo</h1>
+          Instalar con Droplet DigitalOcean
+          Deploy Aplicación node
+          Escalar aplicacion
+
+          Deploy de aplicaciones con servicios dependientes
         </section>
 
         <section id="questions">
