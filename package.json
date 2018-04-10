@@ -7,7 +7,7 @@
   "main": "js/reveal.js",
   "scripts": {
     "test": "grunt test",
-    "start": "static -p 5000",
+    "start": "static -p 5000 -a 0.0.0.0",
     "watch": "grunt serve",
     "build": "grunt"
   },
