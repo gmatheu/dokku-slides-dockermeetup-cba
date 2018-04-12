@@ -105,8 +105,11 @@
 
         <section>
           <section id="features">
-            <h1>Características</h1>
+            <h1>Dokku</h1>
+            <img height="300px" src="./content/images/dokku.png" />
 
+          </section>
+          <section id="features_architecture">
             - Multi Host
             - Multi Tenancy
             - Client App
@@ -115,7 +118,6 @@
             + Straightforward
             + Affordable
             + Probably production ready
-
           </section>
           <section id="features_architecture">
             <h1>Arquitectura</h1>
@@ -157,13 +159,27 @@
           </section>
         </section>
 
-        <section id="demo">
-          <h1>Demo</h1>
-          Instalar con Droplet DigitalOcean
-          Deploy Aplicación node
-          Escalar aplicacion
+        <section id="demo" data-markdown>
+          <script type="text/template">
+            ## Demo
 
-          Deploy de aplicaciones con servicios dependientes
+            * Instalar con Droplet DigitalOcean
+            * Deploy de esta presentación
+            * Escalar aplicacion
+            * Deploy de aplicaciones con servicios dependientes
+
+          </script>
+        </section>
+
+        <section id="conclusion">
+          <h2>Cerrando...</h2>
+            <ul>
+              <li>Heroku tiene un modelo de deploy poderoso y sencillo</li>
+              <li>Dokku imita gran parte de las funcionalidades de Heroku (deploy)</li>
+              <li>Varios proyectos spin-off de Dokku: sshcommand, buildstep/herokuish</li>
+              <li>Dokku para escenarios pequeños/no críticos</li>
+              <!-- <li>Deis/Flynn/Tsuru para mas grande escala</li> -->
+            </ul>
         </section>
 
         <section id="questions">
@@ -174,7 +190,7 @@
         <section id="contact">
           <h1>Gracias!</h1>
           <p>
-            @gmatheu Twitter, Github
+            @gmatheu en Twitter, Github
           </p>
         </section>
         <section data-markdown id="more-info">
