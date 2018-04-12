@@ -5,3 +5,14 @@
   color: #F7CA88
 }
 
+.no-border {
+  border: none;
+  background: none;
+}
+
+.reveal section img {
+  margin: 15px 0px;
+  background: none;
+  border: none;
+  box-shadow: none;
+}

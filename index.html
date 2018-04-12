@@ -37,6 +37,14 @@
           </p>
         </section>
 
+        <section id="whoami">
+          <h3>Introducción</h3>
+          <img style="float: left;" height="200px" src="./content/images/profile.jpg" />
+          <h4 style="text-align: left;">Gonzalo Matheu</h4>
+          <img height="200px" style="float: right;" src="./content/images/asc.png" />
+          <h4 style="text-align: right;">Trabajo en: </h4>
+        </section>
+
         <section id="agenda" data-markdown>
           <script type="text/template">
             # Agenda
@@ -49,30 +57,6 @@
         </section>
 
         <section>
-          <section id="what">
-            <h1>Qué es Dokku?</h1>
-            <blockquote class="fragment fade-in">
-              mini-Heroku basado en Docker. The smallest PaaS implementation you've ever seen.
-            </blockquote>
-            <!-- <blockquote class="fragment fade&#45;in"> -->
-            <!--   A docker&#45;powered PaaS that helps you build and manage the lifecycle of applications -->
-            <!-- </blockquote> -->
-          </section>
-          <section id="what_small">
-            <blockquote class="fragment fade-in">
-              The smallest PaaS implementation you've ever seen?
-            </blockquote>
-            <p class="fragment fade-in">100 líneas en Bash</p>
-            <p class="fragment fade-in">500 líneas en Bash</p>
-            <p class="fragment fade-in">37000 líneas en Bash</p>
-            <img src="./content/images/dokku_repo_loc.png" height="250px" class="fragment fade-in">
-          </section>
-          <section id="what_paas">
-            <h2>PaaS: Platform as a Service</h2>
-            <p>
-              permite ejecutar y gestionar aplicaciones abstrayendo infraestructura y procesos de despliegue.
-            <p>
-          </section>
           <section id="what_heroku">
             <h1>
               <img width="150px" src="https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fludu-assets.s3.amazonaws.com%2Flesson-icons%2FKOLuHYOrXW8T324wQ4OM&f=1" />
@@ -81,6 +65,12 @@
               Heroku is a cloud platform that lets companies build, deliver, monitor and scale apps
               — we're the fastest way to go from idea to URL, bypassing all those infrastructure headaches.
             </blockquote>
+          </section>
+          <section id="what_paas">
+            <h2>PaaS: Platform as a Service</h2>
+            <p>
+              permite ejecutar y gestionar aplicaciones abstrayendo infraestructura y procesos de despliegue.
+            <p>
           </section>
           <section id="what_heroku_good">
             <h3>Heroku: Lo Bueno</h3>
@@ -104,58 +94,136 @@
         </section>
 
         <section>
-          <section id="features">
+          <section>
+            <h2>Entonces...</h2>
+            <img class="fragment fade-in" height="250px" src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2016/04/1461122387heroku-logo.jpg" />
+            <img style="padding: 40px 30px;" class="fragment fade-in" height="150px" src="http://www.clipartbest.com/cliparts/dir/p9x/dirp9xAi9.png" />
+            <img class="fragment fade-in" height="250px" src="https://pbs.twimg.com/profile_images/862037907862765568/pYgBswUk.jpg" />
+          </section>
+          <section id="what">
             <h1>Dokku</h1>
-            <img height="300px" src="./content/images/dokku.png" />
-
+            <img height="250px" src="./content/images/dokku.png" />
+            <blockquote class="fragment fade-in">
+              mini-Heroku basado en Docker. The smallest PaaS implementation you've ever seen.
+            </blockquote>
+          </section>
+          <section id="what_small">
+            <blockquote>
+              The smallest PaaS implementation you've ever seen<span class="fragment fade-in">???</span>
+            </blockquote>
+            <p class="fragment fade-in">100 líneas de código en 2013</p>
+            <p class="fragment fade-in">500 líneas en 2015 </p>
+            <p class="fragment fade-in">actualmente 9000 líneas</p>
+            <h3 class="fragment fade-in">en BASH!!!</h3>
+            <img src="./content/images/dokku_repo_loc.png" height="200px" class="fragment fade-in">
+          </section>
+          <section id="features_features">
+            <h3>Dokku: Hechos</h3>
+            <ul>
+              <li>Plataforma Open Source</li>
+              <li class="fragment fade-in">Usa Docker a secas (single-host). Docker Swarm?</li>
+              <li class="fragment fade-in">Mínimos requerimientos de hardware (~1GB)</li>
+              <li class="fragment fade-in">Overhead casi nulo</li>
+              <li class="fragment fade-in">Extensible mediante plugins</li>
+              <li class="fragment fade-in">Soporta gran parte de las funcionalidades de Heroku</li>
+              <pre class="fragment fade-in"><code class="hljs">git push heroku master</code></pre>
+            </ul>
           </section>
           <section id="features_architecture">
-            - Multi Host
-            - Multi Tenancy
-            - Client App
-
-            + Easy playground
-            + Straightforward
-            + Affordable
-            + Probably production ready
-          </section>
-          <section id="features_architecture">
-            <h1>Arquitectura</h1>
-            Docker
-            Herokuish sshcommand
-            gitreceive
-            nginx
+            <h3>Dokku: Componentes</h3>
+            <ul>
+              <li>Docker: como motor de ejecución</li>
+              <li class="fragment fade-in">Nginx: balanceador de carga</li>
+              <li class="fragment fade-in">gitreceive: lanza acciones con git push</li>
+              <li class="fragment fade-in">sshcommand: expone aplicación cliente vía ssh</li>
+              <li class="fragment fade-in">buildpacks/herokuish: para definir el ciclo de deploy</li>
+            </ul>
           </section>
           <section id="features_buildpacks">
-            <h1>Buildpacks</h1>
+            <h3>Buildpacks</h3>
+            <p>
+              Receta para construir aplicación en distintas fases:
+            </p>
+            <ul>
+              <li>detect: detecta que stack usar y como ejecutarla</li>
+              <li class="fragment fade-in">compile: instala dependencias y compila</li>
+              <li class="fragment fade-in">test-compile: prepara la ejecución de pruebas</li>
+              <li class="fragment fade-in">test: ejecuta pruebas</li>
+            </ul>
+            <blockquote class="fragment fade-in">Los de Heroku están abiertos: https://github.com/heroku-buildpacks</blockquote>
           </section>
           <section id="features_plugins">
-            <h1>Plugins</h1>
+            <h3>Dokku: Plugins</h3>
+          <ul id="plugin-types" style="font-size: 36px;">
+            <li>Base de Datos Sql</li>
+            <li>NoSql</li>
+            <li>Cache</li>
+            <li>Notificaciones</li>
+            <li>Seguridad</li>
+            <li>Nuevas funcionalidades</li>
+          </ul>
           </section>
-          <section id="features_when">
-            <h1>Cuando usar</h1>
-            No critico
-            No grande escala
-            Single host deploys (maybe docker swarm)
+          <section id="features_flow">
+            <h3>Dokku: Flujo de Trabajo</h3>
+            <ul>
+              <li>Crear aplicación</li>
+              <pre class="fragment fade-in"><code class="hljs">ssh dokku@my-server apps:create meetup-app</code></pre>
+              <li class="fragment fade-in">Agregar remote al repositorio apuntando al Dokku</li>
+              <pre class="fragment fade-in"><code class="hljs">git remote add dokku dokku@my-server:meetup-app</code></pre>
+              <li class="fragment fade-in">Push!</li>
+              <pre class="fragment fade-in"><code class="hljs">git push dokku master</code></pre>
+            </ul>
           </section>
-          <section id="features_byproducts">
-            <h1>Proyectos Relacionados</h1>
-            sshcommand
-            herokuish
-            gitreceive
-            plugn
+          <section>
+            <h3>Dokku: Flujo de Trabajo (II)</h3>
+            <ul>
+              <li>Escalar (agregar workers)</li>
+              <pre class="fragment fade-in"><code class="hljs">ssh dokku@my-server ps:scale meetup-app web=2</code></pre>
+              <li class="fragment fade-in">Crear servicio (BD)</li>
+              <pre class="fragment fade-in">
+              <code class="hljs">ssh dokku@my-server posgres:create meetup-app-database
+ssh dokku@my-server posgres:link meetup-app-database meetup-app</code></pre>
+            </ul>
           </section>
-        </section>
+          <section>
+            <h3>Dokku: Casos más complejos</h3>
+            <ul>
+              <li>Procfile: para personalizar procesos de la aplicación</li>
+              <pre class="fragment fade-in">
+              <code class="hljs">web: python manage.py runserver 5000
+worker: python3 manage.py rqworker_i18n my-worker</code></pre>
+              <li class="fragment fade-in">app.json: Agregar pasos al flujo de deploy</li>
+              <pre class="fragment fade-in">
+              <code class="hljs">{
+  "scripts": {
+    "dokku": {
+      "predeploy": "python manage.py migrate",
+    }
+  }
+}</code></pre>
+            </ul>
+          </section>
+          <section>
+            <h3>Dokku: Deploy Dockerfile</h3>
+            <ul>
+              <li>Dockefile</li>
+              <pre class="fragment fade-in">
+              <code class="hljs">FROM debian:jessie
 
-        <section>
-          <section id="vs">
-            <h1>Alternativas</h1>
-            <img src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.computerhowtoguide.com%2Fwp-content%2Fuploads%2F2011%2F11%2FGoogle-Adsense-Alternatives.gif.png&f=1" />
-          </section>
-          <section id="vs_">
-            <h1>Deis</h1> + Kubernetes
-            <h1>Flynn</h1> + Custom containers
-            <h1>Tsuru</h1>
+# set the argument default
+ARG NODE_ENV=production
+
+# assign it to an environment variable
+# we can wrap the variable in brackets
+ENV NODE_ENV ${NODE_ENV}
+
+ADD . /app
+# custom logic
+
+# use the argument
+RUN echo $NODE_ENV</code></pre>
+              <li class="fragment fade-in">Permite desplegar otro tipo de aplicaciones</li>
+            </ul>
           </section>
         </section>
 
@@ -170,6 +238,51 @@
 
           </script>
         </section>
+
+        <section>
+          <section id="when">
+            <h1>Cuando usar?</h1>
+            <img src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.astrologycircle.com%2Fimages-app%2Fyes-no.jpg&f=1" />
+          </section>
+          <section id="when_">
+            <h3>Cuando usar?</h3>
+            <ul class="good">
+              <li>Poco hardware</li>
+              <li>Ambientes no críticos</li>
+              <li>Side projects</li>
+              <li class="not-so-good">Alta disponibilidad</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section id="vs">
+            <h1>Alternativas</h1>
+            <img src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.computerhowtoguide.com%2Fwp-content%2Fuploads%2F2011%2F11%2FGoogle-Adsense-Alternatives.gif.png&f=1" />
+          </section>
+          <section id="vs_flynn">
+            <h2>Flynn</h2>
+            <ul class="good">
+              <li>Alta disponibilidad</li>
+              <li>Servicios con alta disponibilidas (MongoDb, PostgresSql)</li>
+              <li>Escalabilidad siguiendo usando principios de 12 factor apps</li>
+              <li class="not-so-good">Por lo menos 2GB de RAM</li>
+              <li class="not-so-good">No hay tantos servicios (BDs, Caching, Monitoring)</li>
+            </ul>
+          </section>
+          <section id="vs_">
+            <h2>Deis Workflow</h2>
+            <ul class="good">
+              <li>Corre sobre Kubernetes</li>
+              <li>Sponsorea Dokku</li>
+              <li class="not-so-good">Por lo menos 4GB RAM</li>
+              <!-- <li>Escalabilidad siguiendo usando principios de 12 factor apps</li> -->
+              <!-- <li class="not&#45;so&#45;good">Mayores requisitos de hardware y </li> -->
+              <!-- <li class="not&#45;so&#45;good">No hay tantos servicios (BDs, Caching, Monitoring)</li> -->
+            </ul>
+          </section>
+        </section>
+
 
         <section id="conclusion">
           <h2>Cerrando...</h2>
